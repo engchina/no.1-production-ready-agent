@@ -1,10 +1,31 @@
 @import "tailwindcss";
 
 /*
- * Production Ready Agent — グローバルスタイル
+ * Advanced Agent — グローバルスタイル
  * デザイントークン（日本語第一・semantic 状態色・shadcn/ui テーマ）は共有 UI パッケージが正本。
  */
 @import "@engchina/production-ready-ui/tokens.css";
+
+/*
+ * 一時ブランチ限定の配色オーバーライド（temp/local-fixes, main へは merge しない）。
+ * 共有パッケージの tokens.css は 3 プロジェクト共通のため触らず、ここで :root 変数だけを
+ * 上書きする（@theme inline は var() 参照なので runtime 上書きがそのまま反映される)。
+ * トーン: Claude 公式サイト系 = ウォームクリーム地 + テラコッタ/コーラル + ウォームチャコール。
+ * 共有 Sidebar は白文字固定設計のため、サイドバーは Claude のダーク面色で暗色を維持する。
+ */
+:root {
+  --background: #faf9f5; /* Claude クリーム。暖色オフホワイト */
+  --foreground: #1f1e1d; /* ウォーム near-black。本文コントラスト最大 */
+  --card: #ffffff;
+  --border: #e8e5da; /* 暖色ライトボーダー。cream 地でカードを分離 */
+  --muted: #6b6a63; /* ウォームグレーの二次テキスト（AA 4.8:1） */
+  --primary: #d97757; /* Claude コーラル */
+  --primary-foreground: #1f1e1d; /* コーラル上は暗文字で AA 5.2:1（Claude 風） */
+  --sidebar: #30302e; /* Claude のウォームチャコール面色 */
+  --sidebar-foreground: #e9e6dc; /* 暖色クリームのラベル */
+  --sidebar-active: #b85530; /* 深めテラコッタ。白文字固定でも AA 4.7:1 */
+  --ring: #d97757;
+}
 
 /* 共有コンポーネントの utility クラスを Tailwind v4 のスキャン対象に含める。 */
 @source "../node_modules/@engchina/production-ready-ui/dist";

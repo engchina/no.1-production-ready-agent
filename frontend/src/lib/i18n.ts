@@ -3,7 +3,7 @@ import { ja as ragJa } from "@/lib/rag-i18n";
 // 最小 i18n。日本語第一。UI 文言はここ経由で参照し、ハードコードしない。
 const agentJa = {
   "app.title": "AI Agent Control Plane",
-  "app.sidebarTitle.line1": "Production Ready",
+  "app.sidebarTitle.line1": "Advanced",
   "app.sidebarTitle.line2": "Agent",
 
   "nav.sidebar.aria": "サイドナビゲーション",
